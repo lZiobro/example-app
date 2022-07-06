@@ -1,0 +1,93 @@
+.mercenary-poster-wrapper {
+    min-height:320px;
+    max-width: 320px;
+    position:relative;
+}
+
+.mercenary-poster-wrapper > img {
+    height: 100%;
+    width:100%;
+    object-fit: cover;
+}
+/*
+.mercenary-poster-wrapper > img {
+    margin:10%;
+    height: 80%;
+    width:80%;
+    border-radius: 0.3rem;
+    box-shadow: 3px 3px 3px black;
+    object-fit: cover;
+}
+*/
+/*
+.mercenary-poster-wrapper > img {
+    height: 100%;
+    width:100%;
+    object-fit: cover;
+}
+*/
+.mercenary-details-wrapper {
+    max-width: 1280px;
+    margin: auto;
+    height: auto;
+    display: flex;
+    overflow: hidden;
+    margin-top:1rem;
+    position:relative;
+}
+/*
+.mercenary-details:before {
+    content: '';
+    position:absolute;
+    width: 0;
+    height: 95%;
+    top: 2.5%;
+    border-right: 1px solid black;
+    $line-color: silver;
+    border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), $line-color, $line-color, $line-color, rgba(0, 0, 0, 0)) 1 100%;
+    z-index:100;
+}
+*/
+.mercenary-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mercenary-details > .mercenary-title {
+    width:100%;
+    padding-left:1rem;
+}
+
+.mercenary-details-details {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mercenary-details-misc {
+    position: relative;
+    float: left;
+    width: 100%;
+    //height:calc(100% - 4.6rem);
+    flex-grow: 1;
+    padding: 1rem;
+}
+
+.mercenary-details-description {
+    //make padding inset
+    max-width: calc(1280px - 5% * 2);
+    margin:auto;
+    margin-top: 2rem;
+    padding:0.1px 5%;
+    position:relative;
+    overflow:hidden;
+}
+
+.contact-btn {
+    height:4rem;
+    width:100%;
+    font-size: 3rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

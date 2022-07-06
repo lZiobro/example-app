@@ -1,0 +1,31 @@
+.mercenaries-wrapper {
+    max-width: calc(1280px - 10%);
+    //background-color: #A5846A;
+    //background-color: white;
+    //background-color: rgba($color: saddlebrown, $alpha: 0.3);
+    margin: 1rem auto;
+    padding: 5%;
+    position:relative;
+    overflow: hidden;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: space-around;
+
+    //background: radial-gradient(rgba($color: #8f5922, $alpha: 0.6), rgba(0,0,0,0));
+}
+
+
+.mercenaries-wrapper div {
+    margin-bottom: 1rem;
+}
+
+.mercenaries-title {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.mercenaries-title {
+    margin:auto;
+    width:100%;
+    padding-bottom:100px;
+}

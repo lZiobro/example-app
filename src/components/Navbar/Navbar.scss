@@ -1,0 +1,73 @@
+@import "/src/assets/styles/colors";
+
+.Navbar-wrapper {
+    margin: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    position:fixed;
+    z-index: 9999;
+}
+
+.Navbar-logo {
+    cursor: pointer;
+    float:left;
+    margin-left: 50%;
+    left: -50%;
+    object-fit: contain;
+    height:4rem;
+    margin-top:0.2rem;
+    transform: rotate(-5deg);
+}
+
+.Navbar-logo-wrapper {
+    width:20%;
+}
+
+nav {
+    display:flex;
+    overflow: hidden;
+    float:left;
+    width:100%;
+    height:4.4rem;
+    background-color: darkslategray;
+    margin-bottom:10rem;
+    //box-shadow: 0 .2rem .5rem #00615f;
+}
+
+nav a {
+    text-decoration: none;
+    color:black;
+}
+
+nav ul {
+    margin: 0.5rem;
+    padding: 0 0 0 0;
+    float:right;
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+}
+
+nav li {
+    height:calc(4rem - 1.2rem);
+    border-radius: 0.3rem;
+    padding: 0.4rem 0 0 0 ;
+    margin: 0 0 0 0;
+    font-size:2rem;
+    width:100%;
+    text-align: center;
+    cursor: pointer;
+    margin-left:1rem;
+    max-width:18rem;
+}
+
+nav a {
+    width:100%;
+    height: 100%;
+    display:block;
+}

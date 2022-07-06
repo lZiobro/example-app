@@ -1,0 +1,39 @@
+.login-credentials-wrapper {
+    display:flex;
+    max-width:640px;
+    margin:auto;
+    flex-flow: column;
+    height:auto;
+    margin-top:1rem;
+    position:relative;
+    overflow: hidden;
+}
+
+.login-form {
+    padding: 2rem;
+    width:100%;
+    [class$="-wrapper"] {
+        display:block;
+        width:calc(100% - 4rem)
+    }
+    [class$="-label"] {
+        font-size:x-large;
+    }
+    [class$="-input"] {
+        width:100%;
+        font-size: xx-large;
+        margin:auto;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    button {
+        height: calc( 1.5 * 2rem );
+        width:100%;
+        font-size: xx-large;
+        margin-top: 1rem;
+        
+    }
+    .submit-button-wrapper {
+        overflow: visible;
+    }
+}
