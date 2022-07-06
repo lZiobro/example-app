@@ -19,15 +19,27 @@ function Navbar() {
             <li className='primary-btn'>
               <Link to="/mercenaries">Mercenaries</Link>
             </li>
+
+            {(localStorage.getItem('token')) ?
             <li className='primary-btn'>
               <Link to="/mail">Mailbox</Link>
             </li>
+            : ""}
+
+            {(!localStorage.getItem('token')) ?
+            <>
+              <li className='primary-btn'>
+                <Link to="/login">Login</Link>
+              </li>
+              <li className='primary-btn'>
+                <Link to="/register">Register</Link>
+              </li>
+            </>
+            :
             <li className='primary-btn'>
-              <Link to="/login">Login</Link>
-            </li>
-            <li className='primary-btn'>
-              <Link to="/register">Register</Link>
-            </li>
+                <Link to="/logout">Logout</Link>
+              </li>
+            }
           </ul>
         </nav>
 

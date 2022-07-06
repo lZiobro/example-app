@@ -71,6 +71,10 @@ $primary-btn-shadow-color: #8f5922;
     transform: translate(.2rem, .2rem);
 }
 
+.zoomOnHover:hover {
+    transform: scale(1.05);
+}
+
 //https://stackoverflow.com/questions/40242378/underline-from-left-to-right-on-hover-in-and-out
 .expand{
     position:relative;
@@ -139,4 +143,29 @@ $primary-btn-shadow-color: #8f5922;
     animation-timing-function: ease-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+
+.column-wrapper {
+    display:flex;
+    position:relative;
+    flex-direction: row nowrap;
+    width: 100%;
+    justify-content: space-around;
+    overflow: hidden;
+}
+.column-wrapper * {
+    margin: 0 1rem;
+}
+
+.row-wrapper {
+    display:flex;
+    position:relative;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+.row-wrapper * {
+    margin: 1rem 0;
 }

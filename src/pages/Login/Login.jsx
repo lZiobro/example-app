@@ -1,8 +1,10 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
 import './Login.scss';
+import {useNavigate} from 'react-router-dom';
 
 function Login(props) {
+    const navigate = useNavigate();
     const [userName, setUserName] = useState();
     const [password, setPassword] = useState();
     const apiLoginUrl = process.env.REACT_APP_API_BASE_URL+'/api/user/login';
@@ -12,8 +14,10 @@ function Login(props) {
         e.preventDefault();
         const data = await apiLogin({userName, password});
         localStorage.setItem('token',(await data.json()).token);
-        console.log(data);
-        
+        if(localStorage.getItem('token') != null && localStorage.getItem('token') != 'undefined') {
+            props.setLoggedIn(true);
+            navigate(-1);
+        }
     }
 
 
@@ -30,9 +34,8 @@ function Login(props) {
 
     const handleTryAuth = async (e) => {
         e.preventDefault();
-        
         const data = await apiTryAuth("7df2a7a0-b330-4d31-9b71-8bddce1ccba1");
-        console.log(data);
+        //console.log(data);
     }
 
 

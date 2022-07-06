@@ -1,4 +1,5 @@
 import './App.scss';
+import {useState} from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Mercenaries from './pages/Mercenaries/Mercenaries';
@@ -6,6 +7,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import MercenaryDetails from './pages/MercenaryDetails/MercenaryDetails';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import Logout from './pages/Logout/Logout';
 import Contact from './pages/Contact/Contact';
 import Mailbox from './pages/Mailbox/Mailbox';
 import Home from './pages/Home/Home';
@@ -13,6 +15,8 @@ import Home from './pages/Home/Home';
 //panel ogloszenia wystylizowac na kartke z tablicy ogloszen, okok?
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <div className="App">
       {/*   old paper filter source: https://codepen.io/AgnusDei/pen/NWPbOxL
@@ -53,12 +57,13 @@ function App() {
     <Router>
     
       <Routes>
-        <Route path="/" element={<Navbar />}>
+        <Route path="/" element={<Navbar loggedIn={isLoggedIn}/>}>
           <Route index element={<Home />} />
           <Route path="mercenaries" element={<Mercenaries />} />
           <Route path="mercenary/:id" element={<MercenaryDetails />} />
-          <Route path="login" element={<Login />} />
+          <Route path="login" element={<Login setLoggedIn={setIsLoggedIn} />} />
           <Route path="register" element={<Register />} />
+          <Route path="logout" element={<Logout setLoggedIn={setIsLoggedIn} />} />
           <Route path="contact" element={<Contact />} />
           <Route path="mail" element={<Mailbox />} />
           <Route path="*" element={<h1>Page Not Found</h1>} />

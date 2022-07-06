@@ -4,7 +4,7 @@
     //background-color: white;
     //background-color: rgba($color: saddlebrown, $alpha: 0.3);
     margin: 1rem auto;
-    padding: 5%;
+    padding: 3rem 5%;
     position:relative;
     overflow: hidden;
     display:flex;
@@ -25,7 +25,42 @@
 }
 
 .mercenaries-title {
+    display:flex;
     margin:auto;
     width:100%;
-    padding-bottom:100px;
+    height:12rem;
+    margin-bottom:100px;
+    justify-content: center;
+    text-align: center;
+}
+
+.mercenaries-title > h1 {
+    margin:auto;
+    border:solid saddlebrown 1px;
+    background-color: rgba(#cfae8b, 1.0);
+    padding:2rem 12rem;
+    margin-top:2rem;
+}
+
+.mercenaries-search {
+    width:100%;
+    padding:0 30%;
+    border:3px dashed saddlebrown;
+    background-color: rgba(saddlebrown, 0.25);
+}
+
+.mercenaries-search-form {
+    width:100%;
+    padding-bottom:2rem;
+}
+
+.mercenaries-search-btn {
+    margin:auto;
+    width:100%;
+    font-size: xx-large;
+}
+
+.mercenaries-line-bottom {
+    width:100%;
+    border-bottom:3px dashed saddlebrown;
 }

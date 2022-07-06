@@ -25,7 +25,7 @@ function MercenaryDetails(props) {
                     <p>Dislikes: Evil</p>
                     <p>Specialty: Immortal</p>
                     <Link className="nostyle" to={`/contact`} state={{recipent: "Gandalf"}} >
-                        <button className="contact-btn expand primary-btn">Contact Me</button>
+                        <button className="contact-btn primary-btn">Contact Me</button>
                     </Link>
                 </div>
             </div>

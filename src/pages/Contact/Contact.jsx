@@ -1,9 +1,10 @@
-import {React, useState} from "react";
+import {React, useState, useEffect} from "react";
 import './Contact.scss';
-import {Link, useLocation} from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 
 function Contact(props) {
     const location = useLocation();
+    const navigate = useNavigate();
     const [receiverName, setReceiverName] = useState(location?.state?.recipent);
     const [topic, setTopic] = useState();
     const [content, setContent] = useState();
@@ -29,6 +30,11 @@ function Contact(props) {
       });
     }
 
+    useEffect(() => {
+        if(localStorage.getItem('token') == null || localStorage.getItem('token') == 'undefined')navigate("/login");
+    }, [])
+
+    
 
     return (
         <div className="contact-wrapper soft-edges old-paper-background">
@@ -45,7 +51,7 @@ function Contact(props) {
                 <div className="contact-message-wrapper">
                 <textarea className="contact-message-input" placeholder="Write your message here" onChange={e => setContent(e.target.value)}></textarea>
                 </div>
-                    <button className="send-message-btn expand primary-btn">Send Message</button>
+                    <button className="send-message-btn primary-btn">Send Message</button>
             </form>
         </div>
     )
