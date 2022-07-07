@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/example-app/static/css/main.87d2ee5c.css",
-    "main.js": "/example-app/static/js/main.ec31e794.js",
+    "main.css": "/example-app/static/css/main.849bcac2.css",
+    "main.js": "/example-app/static/js/main.a9d52e8a.js",
     "static/js/787.d8118572.chunk.js": "/example-app/static/js/787.d8118572.chunk.js",
     "static/media/woodland-elves.jpg": "/example-app/static/media/woodland-elves.b182a0105bb0e8bc42e0.jpg",
+    "static/media/pelennor-fields.jpg": "/example-app/static/media/pelennor-fields.e60801b7685d24349517.jpg",
     "static/media/main-background.jpg": "/example-app/static/media/main-background.85e62f3b79d85f69533b.jpg",
     "static/media/smaug.jpg": "/example-app/static/media/smaug.0db701a47693b61c49ab.jpg",
     "static/media/gold-pouch.jpg": "/example-app/static/media/gold-pouch.c07d7d21244e3ec5055b.jpg",
@@ -14,12 +15,12 @@
     "static/media/gandalf-wants-you.jpg": "/example-app/static/media/gandalf-wants-you.4473c5a78e189a083e44.jpg",
     "static/media/smiling-aragorn.jpg": "/example-app/static/media/smiling-aragorn.79703e9101183c804e6f.jpg",
     "index.html": "/example-app/index.html",
-    "main.87d2ee5c.css.map": "/example-app/static/css/main.87d2ee5c.css.map",
-    "main.ec31e794.js.map": "/example-app/static/js/main.ec31e794.js.map",
+    "main.849bcac2.css.map": "/example-app/static/css/main.849bcac2.css.map",
+    "main.a9d52e8a.js.map": "/example-app/static/js/main.a9d52e8a.js.map",
     "787.d8118572.chunk.js.map": "/example-app/static/js/787.d8118572.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.87d2ee5c.css",
-    "static/js/main.ec31e794.js"
+    "static/css/main.849bcac2.css",
+    "static/js/main.a9d52e8a.js"
   ]
 }
