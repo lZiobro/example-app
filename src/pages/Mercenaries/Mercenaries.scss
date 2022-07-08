@@ -28,8 +28,8 @@
     display:flex;
     margin:auto;
     width:100%;
-    height:12rem;
-    margin-bottom:100px;
+    margin-top:2rem;
+    height:10rem;
     justify-content: center;
     text-align: center;
 }
@@ -44,7 +44,7 @@
 
 .mercenaries-search {
     width:100%;
-    padding:0 30%;
+    padding:0 25%;
     border:3px dashed saddlebrown;
     background-color: rgba(saddlebrown, 0.25);
 }
@@ -63,4 +63,40 @@
 .mercenaries-line-bottom {
     width:100%;
     border-bottom:3px dashed saddlebrown;
+}
+
+.mercenaries-found {
+    width:100%;
+    padding-bottom: 2rem;
+    font-size:x-large;
+}
+
+.mercenaries-result-wrapper {
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: space-around;
+    //border:3px dashed saddlebrown;
+}
+
+.mercenaries-recently-viewed {
+    display:flex;
+    justify-content: space-around;
+    padding:3rem;
+    margin-left:-3rem;
+    border:3px dashed saddlebrown;
+    background-color: rgba(#cfae8b, 0.8);
+    width:100%;
+    min-width: 640px;
+    height:14rem;
+}
+
+.mercenaries-recently-viewed-caption {
+    font-size: large;
+    text-align: unset;
+    margin-left:-3rem;
+    width:100%;
+}
+
+.search-input {
+    width:100%;
 }

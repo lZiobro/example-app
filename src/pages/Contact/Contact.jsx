@@ -31,7 +31,7 @@ function Contact(props) {
     }
 
     useEffect(() => {
-        if(localStorage.getItem('token') == null || localStorage.getItem('token') == 'undefined')navigate("/login");
+        if(!localStorage.getItem('token')) navigate("/login");
     }, [])
 
     

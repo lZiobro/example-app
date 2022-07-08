@@ -98,6 +98,7 @@
 }
 
 .check-listings {
+    color:black;
     width:fit-content;
     margin:0 auto;
 }
@@ -105,7 +106,7 @@
 .shadow-bottom {
     margin:0;
     padding:0;
-    box-shadow: 0 .5rem .75rem black;
+    box-shadow: 0 .5rem .75rem black, 0 -5rem 15rem -15rem red inset;
 }
 
 .home-top-content {

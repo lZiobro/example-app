@@ -35,7 +35,7 @@ function Login(props) {
     const handleTryAuth = async (e) => {
         e.preventDefault();
         const data = await apiTryAuth("7df2a7a0-b330-4d31-9b71-8bddce1ccba1");
-        //console.log(data);
+        console.log(data);
     }
 
 

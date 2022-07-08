@@ -1,4 +1,4 @@
-import {React} from "react";
+import {React, useState, useEffect} from "react";
 import './Home.scss';
 import {Link} from 'react-router-dom';
 import gandalf from '../../assets/images/gandalf-wants-you.jpg';
@@ -13,6 +13,27 @@ import pelennor from '../../assets/images/pelennor-fields.jpg';
 
 
 function Home() {
+
+    let prevScroll = 0;
+
+    const handleHomeScroll = (e) => {
+        const heightWithoutNavbar = window.visualViewport.height-70;
+
+        if(window.scrollY < heightWithoutNavbar && prevScroll < window.scrollY)
+            window.scrollTo({top: heightWithoutNavbar, behavior: "smooth"});
+        else if(prevScroll >= heightWithoutNavbar && window.scrollY < heightWithoutNavbar)
+            window.scrollTo({top: 0, behavior: "smooth"});
+
+        prevScroll = window.scrollY;
+    }
+
+    console.log("rerender");
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleHomeScroll);
+        return function cleanup() {window.removeEventListener("scroll", handleHomeScroll)};
+    }, []);
+    
     return (
         <>
         <div className="shadow-bottom">
@@ -35,9 +56,6 @@ function Home() {
         {/*<img className="big-image" src={gandalf} alt="Gandalf pointing at you"/>
         */}
         <p>&nbsp;</p>
-        {/*
-        <h3>    Have you ever found yourself in a situation, where you wanted to go on an adventure
-                but your old fellas died in some old dwarvish ruins or got burned to ashes by dragon fire?</h3> */}
         
         <div className="column-wrapper home-top-content">
             <img className="big-image" src={logo} alt="Scouter logo"/>
@@ -75,13 +93,8 @@ function Home() {
             </div>
         </div>
 
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-
-        <h1><u>We are also against all the evil, so you wont find any Sauron servants here!</u></h1>
-
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
+        <h2><u>We are also against all the evil, so you wont find any Sauron servants here!</u></h2>
+        
         <p>&nbsp;</p>
         
         <div className="background-photo-text-panel soft-edges">
