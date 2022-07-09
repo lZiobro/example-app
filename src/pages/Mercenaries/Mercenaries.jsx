@@ -6,9 +6,9 @@ import {useLocation, useSearchParams, useNavigate, createSearchParams} from 'rea
 
 function Mercenaries() {
     const [mercenaries, setMercenaries] = useState(null);
-
     const [searchParams, setSearchParams] = useSearchParams();
     const [page, setPage] = useState(searchParams.get("page"));
+    const [resultsPerPage, setResultsPerPage] = useState(25);
     const [race, setRace] = useState(searchParams.get("race"));
     const [occupation, setOccupation] = useState(searchParams.get("occupation"));
     const [experience, setExperience] = useState(searchParams.get("experience"));
@@ -32,7 +32,8 @@ function Mercenaries() {
         navigate({pathname: "/mercenaries",
         search: location.search});
         var result = await apiMercenaries();
-        console.log(await result.json());
+        setMercenaries(await result.json());
+        //console.log(await result.json());
     }
 
     const apiMercenaries = async () => {
@@ -54,8 +55,8 @@ function Mercenaries() {
             setMercenaries(await result.json());
         }
         innerFuncAsync();
-        if(pagerTopPosition.current.getBoundingClientRect().y < 0)pagerTopPosition.current.scrollIntoView({behaviour: "smooth"});
-        console.log(mercenaries);
+        if(pagerTopPosition?.current?.getBoundingClientRect().y < 0) pagerTopPosition?.current?.scrollIntoView({behaviour: "smooth"});
+        //console.log(mercenaries);
     }, [page])
 
     
@@ -112,13 +113,21 @@ function Mercenaries() {
             */}
             
             <div className='mercenaries-result-wrapper'>
-                <p className='mercenaries-found'>Found: 1923 mercenaries.</p>
+
+
+                <p className='mercenaries-found'>Found: {mercenaries ? mercenaries?.userCount : 0} mercenaries.</p>
                 <div ref={pagerTopPosition}></div>
-                <Pager page={page} setPage={setPage} total='30'/>
+                <Pager page={page} setPage={setPage} total={mercenaries?.userCount ? parseFloat(mercenaries?.userCount)/resultsPerPage : 1}/>
 
-                {mercenaries?.users?.map(x => <Mercenary name={x.userName} race={x.race} occupation={x.occupation}/>)}
 
-                <Pager page={page} setPage={setPage} total='30'/>
+                {mercenaries ? (<>
+                {mercenaries?.users?.map(x => <Mercenary name={x.userName} race={x.race} occupation={x.occupation} id={x.userName}/>)}
+                </>) : (<p className='notfound-text'><i>Looks like no one's here...</i></p>)}
+
+
+                <Pager page={page} setPage={setPage} total={mercenaries?.userCount ? parseFloat(mercenaries?.userCount)/resultsPerPage : 1}/>
+                
+
                 <div>
                     <p className='mercenaries-recently-viewed-caption'>Recently viewed:</p>
                     <div className='mercenaries-recently-viewed'>

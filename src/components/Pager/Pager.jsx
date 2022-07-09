@@ -11,9 +11,11 @@ function Pager(props) {
 
     //if we just started counting and our pager is on the first pages
     const page = searchParams.get("page") ? parseInt(searchParams.get("page")) : 1;
-    const count = props.count ? parseInt(props.count) : 9;
+    let count = props.count ? parseInt(props.count) : 9;
     const total = parseInt(props.total);
+    if (total < count) count = total;
     const halfcount = Math.floor(parseInt(count/2));
+
 
     const handleFirst = (e) => {
         e.preventDefault();
