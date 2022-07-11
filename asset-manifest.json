@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/example-app/static/css/main.20e465e1.css",
-    "main.js": "/example-app/static/js/main.2a441355.js",
+    "main.css": "/example-app/static/css/main.cb5eaa8d.css",
+    "main.js": "/example-app/static/js/main.41c4a650.js",
     "static/js/787.d8118572.chunk.js": "/example-app/static/js/787.d8118572.chunk.js",
     "static/media/woodland-elves.jpg": "/example-app/static/media/woodland-elves.b182a0105bb0e8bc42e0.jpg",
     "static/media/pelennor-fields.jpg": "/example-app/static/media/pelennor-fields.e60801b7685d24349517.jpg",
@@ -14,13 +14,14 @@
     "static/media/old-paper.png": "/example-app/static/media/old-paper.7a94658b94efa2d750e2.png",
     "static/media/gandalf-wants-you.jpg": "/example-app/static/media/gandalf-wants-you.4473c5a78e189a083e44.jpg",
     "static/media/smiling-aragorn.jpg": "/example-app/static/media/smiling-aragorn.79703e9101183c804e6f.jpg",
+    "static/media/logo-long.png": "/example-app/static/media/logo-long.4e4ffc57dbeae1633e6f.png",
     "index.html": "/example-app/index.html",
-    "main.20e465e1.css.map": "/example-app/static/css/main.20e465e1.css.map",
-    "main.2a441355.js.map": "/example-app/static/js/main.2a441355.js.map",
+    "main.cb5eaa8d.css.map": "/example-app/static/css/main.cb5eaa8d.css.map",
+    "main.41c4a650.js.map": "/example-app/static/js/main.41c4a650.js.map",
     "787.d8118572.chunk.js.map": "/example-app/static/js/787.d8118572.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.20e465e1.css",
-    "static/js/main.2a441355.js"
+    "static/css/main.cb5eaa8d.css",
+    "static/js/main.41c4a650.js"
   ]
 }
