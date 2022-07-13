@@ -1,130 +1,129 @@
 .homepage-wrapper {
-    max-width: calc(1280px - 10%);
-    margin: 1rem auto;
-    padding: 3rem 5%;
-    padding-bottom:5rem;
-    position:relative;
-    overflow: hidden;
-    display:flex;
-    flex-flow:column wrap;
-    justify-content: center;
+  max-width: calc(1280px - 10%);
+  margin: 1rem auto;
+  padding: 3rem 5%;
+  padding-bottom: 5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
 }
 
 .homepage-wrapper-big {
-    margin:0;
-    padding:0;
-    max-width: 100%;
-    width:100%;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  width: 100%;
 }
 
 .background-image {
-    z-index: -1;
-    object-fit: cover;
-    position:absolute;
+  z-index: -1;
+  object-fit: cover;
+  position: absolute;
 }
 
 .homepage-wrapper-big p {
-    font-size: xx-large;
+  font-size: xx-large;
 }
 
 .homepage-wrapper h1 {
-    font-size:3rem;
-    margin-bottom:2rem;
-    letter-spacing: .2rem;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.2rem;
 }
 
 .homepage-wrapper h2 {
-    padding-top:2rem;
-    margin-bottom:1rem;
+  padding-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .homepage-wrapper * {
-    text-align: center;
+  text-align: center;
 }
 
-
-
 .big-image {
-    height:32rem;
-    object-fit: contain;
+  height: 32rem;
+  object-fit: contain;
 }
 
 .join-us {
-    margin-top:1rem;
-    margin-bottom: 2rem;
-    font-size:4rem;
-    padding:1rem;
-    color:black;
-    text-decoration: none;
-    margin:auto;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-size: 4rem;
+  padding: 1rem;
+  color: black;
+  text-decoration: none;
+  margin: auto;
 }
 
 .photo-text-panel {
-    border:solid saddlebrown 1px;
-    flex: 0 1;
-    background-color: rgba(#cfae8b, 1);
-    padding-bottom:1rem;
+  border: solid saddlebrown 1px;
+  flex: 0 1;
+  background-color: rgba(#cfae8b, 1);
+  padding-bottom: 1rem;
 }
 
 .photo-description-wrapper {
-    border:solid saddlebrown 1px;
-    flex: 0 1;
-    background-color: rgba(#cfae8b, 0.8);
-    padding-bottom:1rem;
+  border: solid saddlebrown 1px;
+  flex: 0 1;
+  background-color: rgba(#cfae8b, 0.8);
+  padding-bottom: 1rem;
 }
 
 .photo-text-panel img {
-    object-fit: cover;
-    height:300px;
-    margin:0;
+  object-fit: cover;
+  height: 300px;
+  margin: 0;
 }
 
 .background-photo-text-panel {
-    color:lightyellow;
-    background-color:rgba(black, 0.65);
-    font-size: 2.5rem;
-    position:relative;
-    width:100%;
-    display:flex;
-    min-height:480px;
-    overflow: hidden;
+  color: lightyellow;
+  background-color: rgba(black, 0.65);
+  font-size: 2.5rem;
+  position: relative;
+  width: 100%;
+  display: flex;
+  min-height: 480px;
+  overflow: hidden;
 }
 
 .background-photo-text-panel img {
-    margin:0;
-    width:100%;
-    object-fit: cover;
+  margin: 0;
+  width: 100%;
+  object-fit: cover;
 }
 
 .check-listings {
-    color:black;
-    width:fit-content;
-    margin:0 auto;
+  color: black;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .shadow-bottom {
-    margin:0;
-    padding:0;
-    box-shadow: 0 .5rem .75rem black, 0 -5rem 15rem -15rem red inset;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 0.5rem 0.75rem black, 0 -5rem 15rem -15rem red inset;
 }
 
 .home-top-content {
-    padding-bottom:6rem;
+  padding-bottom: 6rem;
 }
 
 .home-panels-wrapper {
-    padding: 5rem 0;
-    background-color: rgba(black, 0.65);
-    box-shadow:0 0 5rem #cfae8b inset;
+  padding: 5rem 0;
+  background-color: rgba(black, 0.65);
+  box-shadow: 0 0 5rem #cfae8b inset;
 }
 .home-panels-wrapper::after {
-    content:''; 
-    position:absolute;
-    height:100%;
-    z-index:-1;
-    width:100%;
-    //padding of parent element
-    margin-top:-5rem;
-    background: url('../../assets/background-images/main-background.jpg') center center fixed no-repeat;
-    background-size: cover;
+  content: "";
+  position: absolute;
+  height: 100%;
+  z-index: -1;
+  width: 100%;
+  //padding of parent element
+  margin-top: -5rem;
+  background: url("../../assets/background-images/main-background.jpg") center
+    center fixed no-repeat;
+  background-size: cover;
 }

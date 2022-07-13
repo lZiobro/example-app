@@ -1,101 +1,100 @@
 .mercenaries-wrapper {
-    max-width: calc(1280px - 10%);
-    margin: 1rem auto;
-    padding: 3rem 5%;
-    position:relative;
-    overflow: hidden;
-    display:flex;
-    flex-flow:row wrap;
-    justify-content: space-around;
+  max-width: calc(1280px - 10%);
+  margin: 1rem auto;
+  padding: 3rem 5%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
-
 
 .mercenaries-wrapper div {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .mercenaries-title {
-    text-align: center;
-    margin-bottom: 5rem;
+  text-align: center;
+  margin-bottom: 5rem;
 }
 
 .mercenaries-title {
-    display:flex;
-    margin:auto;
-    width:100%;
-    margin-top:2rem;
-    height:10rem;
-    justify-content: center;
-    text-align: center;
+  display: flex;
+  margin: auto;
+  width: 100%;
+  margin-top: 2rem;
+  height: 10rem;
+  justify-content: center;
+  text-align: center;
 }
 
 .mercenaries-title > h1 {
-    margin:auto;
-    border:solid saddlebrown 1px;
-    background-color: rgba(#cfae8b, 1.0);
-    padding:2rem 12rem;
-    margin-top:2rem;
+  margin: auto;
+  border: solid saddlebrown 1px;
+  background-color: rgba(#cfae8b, 1);
+  padding: 2rem 12rem;
+  margin-top: 2rem;
 }
 
 .mercenaries-search {
-    width:100%;
-    padding:0 25%;
-    border:3px dashed saddlebrown;
-    background-color: rgba(saddlebrown, 0.25);
+  width: 100%;
+  padding: 0 25%;
+  border: 3px dashed saddlebrown;
+  background-color: rgba(saddlebrown, 0.25);
 }
 
 .mercenaries-search-form {
-    width:100%;
-    padding-bottom:2rem;
+  width: 100%;
+  padding-bottom: 2rem;
 }
 
 .mercenaries-search-btn {
-    margin:auto;
-    width:100%;
-    font-size: xx-large;
+  margin: auto;
+  width: 100%;
+  font-size: xx-large;
 }
 
 .mercenaries-line-bottom {
-    width:100%;
-    border-bottom:3px dashed saddlebrown;
+  width: 100%;
+  border-bottom: 3px dashed saddlebrown;
 }
 
 .mercenaries-found {
-    width:100%;
-    padding-bottom: 2rem;
-    font-size:x-large;
+  width: 100%;
+  padding-bottom: 2rem;
+  font-size: x-large;
 }
 
 .mercenaries-result-wrapper {
-    display:flex;
-    flex-flow:row wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 
 .notfound-text {
-    font-size: large;
-    margin-bottom:5rem;
+  font-size: large;
+  margin-bottom: 5rem;
 }
 
 .mercenaries-recently-viewed {
-    display:flex;
-    justify-content: space-around;
-    padding:3rem;
-    margin-left:-3rem;
-    border:3px dashed saddlebrown;
-    background-color: rgba(#cfae8b, 0.8);
-    width:100%;
-    min-width: 640px;
-    height:14rem;
+  display: flex;
+  justify-content: space-around;
+  padding: 3rem;
+  margin-left: -3rem;
+  border: 3px dashed saddlebrown;
+  background-color: rgba(#cfae8b, 0.8);
+  width: 100%;
+  min-width: 640px;
+  height: 14rem;
 }
 
 .mercenaries-recently-viewed-caption {
-    font-size: large;
-    text-align: unset;
-    margin-left:-3rem;
-    width:100%;
+  font-size: large;
+  text-align: unset;
+  margin-left: -3rem;
+  width: 100%;
 }
 
 .search-input {
-    width:100%;
+  width: 100%;
 }

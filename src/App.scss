@@ -1,36 +1,37 @@
 @import "/src/assets/styles/global";
 
-.app-background{
-    margin: 0;  
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    z-index: -100;
-    scroll-behavior: smooth;
-  }
-  .app-background::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -100;
-    background: url('./assets/background-images/main-background.jpg') center center fixed no-repeat;
-    background-size: cover;
-    filter: blur(5px) brightness(50%);
-    transform: scale(1.1);
-  }
-  .App {
-    //compensation for the Navbar
-    margin-top:4.4rem;
-    position:relative;
-    //12 rem from footer and 4.4 from navbar
-    min-height: calc(100vh - 12rem - 4.4rem);
-    padding-bottom:12rem;
-  }
+.app-background {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: -100;
+  scroll-behavior: smooth;
+}
+.app-background::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -100;
+  background: url("./assets/background-images/main-background.jpg") center
+    center fixed no-repeat;
+  background-size: cover;
+  filter: blur(5px) brightness(50%);
+  transform: scale(1.1);
+}
+.App {
+  //compensation for the Navbar
+  margin-top: 4.4rem;
+  position: relative;
+  //12 rem from footer and 4.4 from navbar
+  min-height: calc(100vh - 12rem - 4.4rem);
+  padding-bottom: 12rem;
+}
 
-  //to avod moving other elements
-  .svg-filter {
-    position:absolute;
-  }
+//to avod moving other elements
+.svg-filter {
+  position: absolute;
+}

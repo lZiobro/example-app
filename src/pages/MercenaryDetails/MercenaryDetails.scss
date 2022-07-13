@@ -1,94 +1,94 @@
 .mercenary-poster-wrapper {
-    height:320px;
-    width: 320px;
-    position:relative;
-    display:flex;
+  height: 320px;
+  width: 320px;
+  position: relative;
+  display: flex;
 }
 
 .mercenary-poster-wrapper > img {
-    width:320px;
-    object-fit: cover;
+  width: 320px;
+  object-fit: cover;
 }
 
 .mercenary-details-wrapper {
-    max-width: 1280px;
-    margin: auto;
-    height: auto;
-    display: flex;
-    overflow: hidden;
-    margin-top:1rem;
-    position:relative;
+  max-width: 1280px;
+  margin: auto;
+  height: auto;
+  display: flex;
+  overflow: hidden;
+  margin-top: 1rem;
+  position: relative;
 }
 
 .mercenary-details {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .mercenary-details > .mercenary-title {
-    width:100%;
-    padding-left:1rem;
+  width: 100%;
+  padding-left: 1rem;
 }
 
 .mercenary-details-details {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .mercenary-details-misc {
-    position: relative;
-    float: left;
-    width: 100%;
-    flex-grow: 1;
-    padding: 1rem;
+  position: relative;
+  float: left;
+  width: 100%;
+  flex-grow: 1;
+  padding: 1rem;
 }
 
 .mercenary-details-description {
-    //make padding inset
-    max-width: calc(1280px - 5% * 2);
-    margin:auto;
-    margin-top: 2rem;
-    padding:1rem 5%;
-    padding-bottom:5rem;
-    position:relative;
-    overflow:hidden;
-    white-space: pre-wrap;
+  //make padding inset
+  max-width: calc(1280px - 5% * 2);
+  margin: auto;
+  margin-top: 2rem;
+  padding: 1rem 5%;
+  padding-bottom: 5rem;
+  position: relative;
+  overflow: hidden;
+  white-space: pre-wrap;
 }
 
 .contact-btn {
-    height:4rem;
-    width:100%;
-    font-size: 3rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  height: 4rem;
+  width: 100%;
+  font-size: 3rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .edit-btn {
-    position:fixed;
-    margin-top:2rem;
-    margin-left:2rem;
-    width:9rem;
-    padding:3rem;
-    text-align: center;
-    font-size:x-large;
+  position: fixed;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  width: 9rem;
+  padding: 3rem;
+  text-align: center;
+  font-size: x-large;
 }
 
 .listing-btn {
-    margin-top: 13rem;
+  margin-top: 13rem;
 }
 
 .aboutme-input {
-    box-sizing: border-box;
-    height:15rem;
-    width:50vw;
+  box-sizing: border-box;
+  height: 15rem;
+  width: 50vw;
 }
 
 .pfp-input-wrapper {
-    background-color: rgba(white, 0.7);
-    width:18rem;
-    padding:1rem;
-    position: absolute;
-    height:18.55rem;
+  background-color: rgba(white, 0.7);
+  width: 18rem;
+  padding: 1rem;
+  position: absolute;
+  height: 18.55rem;
 }

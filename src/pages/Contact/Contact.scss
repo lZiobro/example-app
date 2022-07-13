@@ -1,43 +1,43 @@
 .contact-wrapper {
-    display:flex;
-    max-width:640px;
-    margin:auto;
-    flex-flow: column;
-    height:auto;
-    margin-top:1rem;
-    position:relative;
-    overflow: hidden;
+  display: flex;
+  max-width: 640px;
+  margin: auto;
+  flex-flow: column;
+  height: auto;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .contact-wrapper > h1 {
-    margin-left:1rem;
+  margin-left: 1rem;
 }
 
 .contact-form {
-    width:100%;
+  width: 100%;
 }
 
 .topic-wrapper {
-    margin-left:9%;
-    margin-right:9%;
-    width:80%;
+  margin-left: 9%;
+  margin-right: 9%;
+  width: 80%;
 }
 
 .contact-message-input {
-    box-sizing: border-box;
-    height:15rem;
+  box-sizing: border-box;
+  height: 15rem;
 }
 
 .contact-message-wrapper {
-    width:80%;
-    margin-left:9%;
+  width: 80%;
+  margin-left: 9%;
 }
 
 .send-message-btn {
-    height:3rem;
-    float:right;
-    width:50%;
-    margin:5%;
-    font-size: 2rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  height: 3rem;
+  float: right;
+  width: 50%;
+  margin: 5%;
+  font-size: 2rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }

@@ -1,89 +1,89 @@
 @import "/src/assets/styles/colors";
 
 .Navbar-wrapper {
-    margin: 0;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0;
-    position:fixed;
-    z-index: 9999;
+  margin: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  position: fixed;
+  z-index: 9999;
 }
 
 .Navbar-logo {
-    cursor: pointer;
-    float:left;
-    object-fit: contain;
-    height:3rem;
-    margin-top:.7rem;
-    transform: rotate(-2deg);
+  cursor: pointer;
+  float: left;
+  object-fit: contain;
+  height: 3rem;
+  margin-top: 0.7rem;
+  transform: rotate(-2deg);
 }
 
 .Navbar-logo-wrapper {
-    width:20%;
-    display:flex;
-    justify-content: center;
+  width: 20%;
+  display: flex;
+  justify-content: center;
 }
 
 nav {
-    display:flex;
-    overflow: hidden;
-    float:left;
-    width:100%;
-    height:4.4rem;
-    background-color: #101010;
-    box-shadow: 0 -.5rem .75rem 1rem black;
-    margin-bottom:10rem;
+  display: flex;
+  overflow: hidden;
+  float: left;
+  width: 100%;
+  height: 4.4rem;
+  background-color: #101010;
+  box-shadow: 0 -0.5rem 0.75rem 1rem black;
+  margin-bottom: 10rem;
 }
 
 nav a {
-    text-decoration: none;
-    color:black;
+  text-decoration: none;
+  color: black;
 }
 
 nav ul {
-    margin: 0.5rem;
-    padding: 0 0 0 0;
-    float:right;
-    display: flex;
-    width: 80%;
-    flex-direction: row;
-    justify-content: space-around;
-    list-style: none;
+  margin: 0.5rem;
+  padding: 0 0 0 0;
+  float: right;
+  display: flex;
+  width: 80%;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style: none;
 }
 
 nav li {
-    border-radius: 0.3rem;
-    padding: 0.4rem 0 0 0 ;
-    margin: 0 0 0 0;
-    font-size:2rem;
-    width:100%;
-    text-align: center;
-    cursor: pointer;
-    margin-left:1rem;
-    max-width:18rem;
+  border-radius: 0.3rem;
+  padding: 0.4rem 0 0 0;
+  margin: 0 0 0 0;
+  font-size: 2rem;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 1rem;
+  max-width: 18rem;
 }
 
 nav a {
-    width:100%;
-    height: 100%;
-    display:block;
-    color:whitesmoke;
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: whitesmoke;
 }
 
 .navbar-btn {
-    background-color: #2d2d2d;
-    box-shadow: .2rem .2rem #1d1d1d;
-    transition: all .2s ease-in-out;
+  background-color: #2d2d2d;
+  box-shadow: 0.2rem 0.2rem #1d1d1d;
+  transition: all 0.2s ease-in-out;
 }
 
 .navbar-btn:hover {
-    background-color: #3d3d3d;
+  background-color: #3d3d3d;
 }
 
 .navbar-btn:active {
-    background-color: #3d3d3d;
-    box-shadow: unset;
-    transform: translate(.2rem, .2rem);
+  background-color: #3d3d3d;
+  box-shadow: unset;
+  transform: translate(0.2rem, 0.2rem);
 }
