@@ -65,19 +65,19 @@ function Pager(props) {
     if(page <= halfcount) {
         for(var i = 0; i < count; i++) {
             let num = i+1;
-            buttons.push(<button onClick={handleButton} className={'pagination-btn ' + (num === page ? "pagination-btn-selected" : "")}>{num}</button>);
+            buttons.push(<button onClick={handleButton} key={num} className={'pagination-btn ' + (num === page ? "pagination-btn-selected" : "")}>{num}</button>);
         }
     }
     //if our pager near the end and we cant scroll or add more buttons anymore
     else if(page > total-halfcount) {
         for(var i = 0; i < count; i++) {
             let num = total-(count-i-1);
-            buttons.push(<button onClick={handleButton} className={'pagination-btn ' + (num === page ? "pagination-btn-selected" : "")}>{num}</button>);
+            buttons.push(<button onClick={handleButton} key={num} className={'pagination-btn ' + (num === page ? "pagination-btn-selected" : "")}>{num}</button>);
         }
     } else {
         for(var i = 0; i < count; i++) {
             let num = page-halfcount+i;
-            buttons.push(<button onClick={handleButton} className={'pagination-btn ' + (num === page ? "pagination-btn-selected" : "")}>{num}</button>);
+            buttons.push(<button onClick={handleButton} key={num} className={'pagination-btn ' + (num === page ? "pagination-btn-selected" : "")}>{num}</button>);
         }
     }
 

@@ -12,46 +12,11 @@ import Contact from './pages/Contact/Contact';
 import Mailbox from './pages/Mailbox/Mailbox';
 import Home from './pages/Home/Home';
 
-//panel ogloszenia wystylizowac na kartke z tablicy ogloszen, okok?
-
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("token") ? true : false);
 
   return (
     <div className="App">
-      {/*   old paper filter source: https://codepen.io/AgnusDei/pen/NWPbOxL
-            wood filter source: https://codepen.io/finnhvman/pen/PoGyjGE edited\
-
-
-            <svg xmlns="http://www.w3.org/2000/svg">
-    <filter id="filter">
-        <feTurbulence type="fractalNoise" baseFrequency=".3 .005"/>
-        <feColorMatrix values="0 0 0 .33 .69
-                               0 0 0 .23 .38
-                               0 0 0 .15 .16
-                               0 0 0 0 1"/>
-    </filter>
-    <rect width="100%" height="100%" filter="url(#filter)"/>
-</svg>
-
-
-
-        <feColorMatrix values="0 0 0 .33 .69
-                               0 0 0 .23 .38
-                               0 0 0 .16 .16
-                               0 0 0 0 1"/>
-      */}
-      <svg className='svg-filter'>
-        <filter id="wavy2">
-          <feTurbulence x="0" y="0" baseFrequency="0.02" numOctaves="5" seed="1"></feTurbulence>
-          <feColorMatrix values="0 0 0 .33 .69
-                               0 0 0 .23 .38
-                               0 0 0 .16 .16
-                               0 0 0 0 .3"/>
-          <feBlend in="SourceGraphic" mode="color"/>
-        </filter>
-      </svg>
-
     <div className='app-background' />
 
     <Router>
@@ -61,9 +26,9 @@ function App() {
           <Route index element={<Home />} />
           <Route path="mercenaries" element={<Mercenaries />} />
           <Route path="mercenary/:id" element={<MercenaryDetails />} />
-          <Route path="login" element={<Login setLoggedIn={setIsLoggedIn} />} />
+          <Route path="login" element={<Login loggedIn={isLoggedIn} setLoggedIn={setIsLoggedIn} />} />
           <Route path="register" element={<Register />} />
-          <Route path="logout" element={<Logout setLoggedIn={setIsLoggedIn} />} />
+          <Route path="logout" element={<Logout loggedIn={isLoggedIn} setLoggedIn={setIsLoggedIn} />} />
           <Route path="contact" element={<Contact />} />
           <Route path="mail" element={<Mailbox />} />
           <Route path="*" element={<h1>Page Not Found</h1>} />
@@ -71,7 +36,17 @@ function App() {
       </Routes>
       <Footer />
     </Router>
-    
+
+    <svg className='svg-filter'>
+        <filter id="wavy2">
+          <feTurbulence x="0" y="0" baseFrequency="0.02" numOctaves="5" seed="1"></feTurbulence>
+          <feColorMatrix values="0 0 0 .33 .69
+                               0 0 0 .23 .38
+                               0 0 0 .16 .16
+                               0 0 0 0 .3"/>
+          <feBlend in="SourceGraphic" mode="color"/>
+        </filter>
+      </svg>
     </div>
   )
 }

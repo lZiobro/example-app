@@ -37,7 +37,6 @@ a.nostyle:visited {
     display:inline-block;
     box-shadow: 3px 3px 1rem black, 0 0 10rem #8f5922 inset;
     filter:url(#wavy2);
-    //transform: scale(1.00);
     z-index:-1;
     background-color: white;
 }
@@ -56,19 +55,32 @@ $primary-btn-shadow-color: #8f5922;
     border-radius:.5rem;
     cursor:pointer;
     transition: all .2s ease-in-out;
-   // border-radius:0.2rem;
 }
 
 .primary-btn:hover {
-    
     background-color: $primary-btn-fg-color;
-    //box-shadow:-2px 2px 1px #8f5922;
 }
 
 .primary-btn:active {
     background-color: $primary-btn-fg-color;
     box-shadow: unset;
     transform: translate(.2rem, .2rem);
+}
+
+.green-btn {
+    background-color: green;
+    box-shadow:.2rem .2rem darkgreen;
+}
+.green-btn:hover {
+    background-color: lightgreen;
+}
+
+.red-btn {
+    background-color: red;
+    box-shadow: .2rem .2rem darkred;
+}
+.red-btn:hover {
+    background-color: salmon;
 }
 
 .zoomOnHover:hover {

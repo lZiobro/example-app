@@ -23,11 +23,11 @@ function Home() {
             window.scrollTo({top: heightWithoutNavbar, behavior: "smooth"});
         else if(prevScroll >= heightWithoutNavbar && window.scrollY < heightWithoutNavbar)
             window.scrollTo({top: 0, behavior: "smooth"});
+        else
+            window.scrollTo({top: window.scrollY});
 
         prevScroll = window.scrollY;
     }
-
-    console.log("rerender");
 
     useEffect(() => {
         window.addEventListener("scroll", handleHomeScroll);
@@ -51,10 +51,6 @@ function Home() {
         </div>
     
     <div className="homepage-wrapper old-paper-background soft-edges">
-        {/* no cool having 2 times h1 
-        <h1><u>Hey You!</u></h1>*/}
-        {/*<img className="big-image" src={gandalf} alt="Gandalf pointing at you"/>
-        */}
         <p>&nbsp;</p>
         
         <div className="column-wrapper home-top-content">

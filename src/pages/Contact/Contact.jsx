@@ -12,9 +12,8 @@ function Contact(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(receiverName);
         const data = await apiNewMessage({receiverName, topic, content});
-        console.log(data);
+        navigate('/mail');
     }
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Navbar.scss';
 import {Outlet, Link} from 'react-router-dom';
-import logo from '../../assets/shared/logo.png';
+import logoLong from '../../assets/shared/logo-long.png';
 
 
 
@@ -10,33 +10,38 @@ function Navbar() {
         <>
         <nav className='Navbar-wrapper'>
         <Link to='/' className='Navbar-logo-wrapper'>
-            <img className='Navbar-logo' src={logo} alt='Logo' />
+            <img className='Navbar-logo' src={logoLong} alt='Logo' />
         </Link>
           <ul>
-            <li className='primary-btn'>
+            <li className='navbar-btn'>
               <Link to="/">Home</Link>
             </li>
-            <li className='primary-btn'>
+            <li className='navbar-btn'>
               <Link to="/mercenaries">Mercenaries</Link>
             </li>
 
             {(localStorage.getItem('token')) ?
-            <li className='primary-btn'>
+            <>
+            <li className='navbar-btn'>
               <Link to="/mail">Mailbox</Link>
             </li>
+            <li className='navbar-btn'>
+              <Link to={"/mercenary/"+localStorage.getItem("username")}>Profile</Link>
+            </li>
+            </>
             : ""}
 
             {(!localStorage.getItem('token')) ?
             <>
-              <li className='primary-btn'>
+              <li className='navbar-btn'>
                 <Link to="/login">Login</Link>
               </li>
-              <li className='primary-btn'>
+              <li className='navbar-btn'>
                 <Link to="/register">Register</Link>
               </li>
             </>
             :
-            <li className='primary-btn'>
+            <li className='navbar-btn'>
                 <Link to="/logout">Logout</Link>
               </li>
             }

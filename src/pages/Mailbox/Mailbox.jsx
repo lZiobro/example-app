@@ -3,14 +3,25 @@ import './Mailbox.scss';
 import {Link} from 'react-router-dom';
 
 function MailsList(props) {
-    const [selectedRowIndex, setSelectedRowIndex] = useState(-1);
     const Messages = props.messages;
-    if(localStorage.getItem('token') == 'undefined' || localStorage.getItem('token') == null) return <>Unauthorized</>
-    if(Messages == null) return <p>null</p>
+    
+    const [selectedRowIndex, setSelectedRowIndex] = useState(-1);
+    const [currentMessage, setCurrentMessage] = useState(null);
+    
     function handleRowSelect(index) {
         setSelectedRowIndex(index);
     }
-    console.log("render mailsList");
+    
+    //we need this additional useEffect to clear message content when changing between inbox/sent
+    useEffect(() => {
+        setCurrentMessage(Messages?.find(message => message.id == selectedRowIndex));
+    }, [Messages]);
+    useEffect(() => {
+        setCurrentMessage(Messages?.find(message => message.id == selectedRowIndex));
+    }, [selectedRowIndex]);
+
+    if(localStorage.getItem('token') == 'undefined' || localStorage.getItem('token') == null) return <>Unauthorized</>
+
     return(
         <>
             <table>
@@ -30,10 +41,10 @@ function MailsList(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {Messages.map((message) => 
+                    {Messages ? Messages.map((message) => 
                     <tr className={selectedRowIndex == message.id ? "mail-selected" : ""} onClick={() => setSelectedRowIndex(message.id)} key={message.id}>
                         <td>
-                            {message.receiverName}
+                            {props.box == "Inbox" ? message.senderName : message.receiverName}
                         </td>
                         <td>
                             {message.topic}
@@ -43,14 +54,35 @@ function MailsList(props) {
                         </td>
                         
                         <td>
-                        <Link className="reply-cell nostyle" to={`/contact`} >Reply</Link>
+                        <Link className="reply-cell nostyle" to={`/contact`} state={{recipent: props.box == "Inbox" ? message.senderName : message.receiverName}}>Reply</Link>
                         </td>
                     </tr>
-                    )}
+                    ) : (
+                    <tr>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    
+                    <td>
+                    
+                    </td>
+                </tr>)}
                 </tbody>
             </table>
             <div className="mailbox-main-content">
-                {Messages.find(message => message.id == selectedRowIndex)?.content}
+                {currentMessage ? <>
+                    <h2 className="message-content-topic">{currentMessage?.topic}</h2>
+                    <span className="message-content-user">{currentMessage?.receiverName}</span>
+                    <span className="message-content-content">{currentMessage?.content}</span>
+                    <br />
+                    <span className="message-content-footer">Sent: {currentMessage?.dateSend}</span>
+                    </> : ""}
             </div>
             </>
     );
@@ -73,7 +105,6 @@ function Mailbox() {
         setBox(box);
         if(box == "Inbox" && inMessages == null) {
             var data = await apiMessages(apiInMessagesUrl);
-            //console.log(await data.json());
             if(data?.status == 200) setInMessages(await data.json());
         } else if(box == "Sent" && outMessages == null) {
             var data = await apiMessages(apiOutMessagesUrl);
@@ -82,7 +113,6 @@ function Mailbox() {
     };
 
     useEffect(() => {
-        console.log("UseEffect called");
         const fetchData = async () => {
             var data = await apiMessages(apiInMessagesUrl);
             if(data?.status == 200) setInMessages(await data.json());
@@ -92,16 +122,10 @@ function Mailbox() {
 
     }, []);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        //const data = await apiNewMessage({receiverName, topic, content});
-        //console.log(data);
-    }
-
     const apiMessages = async (apiMessagesUrl) => {
     var result = await fetch(apiMessagesUrl, {
         mode: 'cors',
-        method: 'POST',
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -110,15 +134,12 @@ function Mailbox() {
       return result;
     }
 
-    console.log("renderd");
-
-
-
 
     return (
         <div className="mailbox-wrapper soft-edges old-paper-background">
             <div className="mailbox-side">
                 <h3>Mailbox</h3>
+                <Link className="nostyle sendmail-btn" to={'/contact'}><p>Send Message</p></Link>
                 <p className={box == "Inbox" ? "mail-selected" : ""} onClick={() => handleBoxSelect("Inbox")}>Inbox</p>
                 <p className={box == "Sent" ? "mail-selected" : ""} onClick={() => handleBoxSelect("Sent")}>Sent</p>
             </div>

@@ -1,8 +1,5 @@
 .mercenaries-wrapper {
     max-width: calc(1280px - 10%);
-    //background-color: #A5846A;
-    //background-color: white;
-    //background-color: rgba($color: saddlebrown, $alpha: 0.3);
     margin: 1rem auto;
     padding: 3rem 5%;
     position:relative;
@@ -10,8 +7,6 @@
     display:flex;
     flex-flow:row wrap;
     justify-content: space-around;
-
-    //background: radial-gradient(rgba($color: #8f5922, $alpha: 0.6), rgba(0,0,0,0));
 }
 
 
@@ -75,7 +70,6 @@
     display:flex;
     flex-flow:row wrap;
     justify-content: space-around;
-    //border:3px dashed saddlebrown;
 }
 
 .notfound-text {

@@ -1,25 +1,24 @@
-import React from 'react';
-import {useEffect, useState} from 'react';
+import {React, useEffect, useState} from 'react';
 import './Register.scss';
+import {useNavigate} from 'react-router-dom';
 
 function Register(props) {
+    const navigate = useNavigate();
     const [userName, setUserName] = useState();
     const [password, setPassword] = useState();
     const [race, setRace] = useState();
-    const [home, setHome] = useState();
     const [occupation, setOccupation] = useState();
     const [experience, setExperience] = useState();
-    const apiRegisterUrl = process.env.REACT_APP_API_BASE_URL+'/api/user/register';
+    const apiRegisterUrl = process.env.REACT_APP_API_BASE_URL+'/api/users/register';
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const data = await apiRegister({userName, password, race, home, occupation, experience});
-        console.log(data);
+        const result = await apiRegister({userName, password, race, occupation, experience});
+        if(result.ok) navigate('/login');
     }
 
 
     const apiRegister = async (credentials) => {
-        console.log(JSON.stringify(credentials));
     return fetch(apiRegisterUrl, {
         method: 'POST',
         headers: {
@@ -47,11 +46,6 @@ function Register(props) {
                     <label htmlFor="race" className='race-label'>Race:</label>
                     <br />
                     <input type="text" name="race" id="race" className='input-input' onChange={e => setRace(e.target.value)}/>
-                </div>
-                <div className='home-wrapper'>
-                    <label htmlFor="home" className='home-label'>Home:</label>
-                    <br />
-                    <input type="text" name="home" id="home" className='input-input' onChange={e => setHome(e.target.value)}/>
                 </div>
                 <div className='occupation-wrapper'>
                     <label htmlFor="occupation" className='occupation-label'>Occupation:</label>

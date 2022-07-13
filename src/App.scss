@@ -6,6 +6,7 @@
     width: 100%;
     overflow: hidden;
     z-index: -100;
+    scroll-behavior: smooth;
   }
   .app-background::before {
     content: '';

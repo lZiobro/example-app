@@ -4,13 +4,17 @@ import {useNavigate} from 'react-router-dom';
 
 function Logout(props) {
     const navigate = useNavigate();
-
+    let timeoutId= null;
     useEffect(() => {
         localStorage.removeItem('token');
+        localStorage.removeItem('username');
         props.setLoggedIn(false);
-        setTimeout(() => {
+        timeoutId = setTimeout(() => {
             navigate('/');
-        }, 2500)
+        }, 2000)
+        return function cleanup() {
+            if(timeoutId != null) window.clearTimeout(timeoutId);
+        };
     }, [])
 
     return (

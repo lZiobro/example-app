@@ -7,48 +7,29 @@ function Login(props) {
     const navigate = useNavigate();
     const [userName, setUserName] = useState();
     const [password, setPassword] = useState();
-    const apiLoginUrl = process.env.REACT_APP_API_BASE_URL+'/api/user/login';
-    const apiGetUserUrl = process.env.REACT_APP_API_BASE_URL+'/api/user';
+    const apiLoginUrl = process.env.REACT_APP_API_BASE_URL+'/api/users/login';
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const data = await apiLogin({userName, password});
-        localStorage.setItem('token',(await data.json()).token);
-        if(localStorage.getItem('token') != null && localStorage.getItem('token') != 'undefined') {
+        const data = await apiLogin2({userName, password});
+        const token = (await data.json())?.token;
+        if(!token) return;
+        localStorage.setItem('token', token);
+        if(localStorage.getItem('token')) {
+            localStorage.setItem('username', userName);
             props.setLoggedIn(true);
             navigate(-1);
         }
     }
 
 
-    const apiLogin = async (credentials) => {
-        console.log(JSON.stringify(credentials));
+    const apiLogin2 = async (credentials) => {
     return fetch(apiLoginUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(credentials)
-      });
-    }
-
-    const handleTryAuth = async (e) => {
-        e.preventDefault();
-        const data = await apiTryAuth("7df2a7a0-b330-4d31-9b71-8bddce1ccba1");
-        console.log(data);
-    }
-
-
-    const apiTryAuth = async (userId) => {
-        //console.log('Authorization: Bearer' + token);
-        console.log(JSON.stringify(userId));
-    return fetch(apiGetUserUrl+"?userId="+userId, {
-        mode: 'cors',
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-        }
       });
     }
     
@@ -68,7 +49,6 @@ function Login(props) {
                 </div>
                 <div className='submit-button-wrapper'>
                     <button type='submit' className="primary-btn">Sign In</button>
-                    <p onClick={handleTryAuth}>Try Auth</p>
                 </div>
             </form>
         </div>
