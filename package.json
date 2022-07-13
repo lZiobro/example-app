@@ -1,6 +1,6 @@
 {
-  "homepage": "https://lziobro.github.io/example-app/",
-  "name": "example-app",
+  "homepage": "https://lziobro.github.io/example-react-app/",
+  "name": "example-react-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
