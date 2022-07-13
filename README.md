@@ -1,8 +1,8 @@
-###Tired of looking for a new mates for the next big adventure?
+### Tired of looking for a new mates for the next big adventure?
 
-##Scouter Services is here to help you!
+## Scouter Services is here to help you!
 
-###About the App
+### About the App
 
 App serves purpose similiar to Facebook or LinkedIn, where one can register, setup a profile and be listed as one of the adventurers ready to be hired.
 
