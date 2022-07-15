@@ -1,7 +1,7 @@
 # The app is available at: https://lziobro.github.io/example-react-app
 # Note: If you cant see any mercenary listings,
 ## that means Api is currently asleep. Because of free version, itll take about 5 minutes for it to kick in after the initial call. Sorry 'bout that.
-
+<br /><br /><br /><br /><br /><br /><br /><br />
 ### Tired of looking for a new mates for the next big adventure?
 
 ## Scouter Services is here to help you!
