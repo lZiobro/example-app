@@ -1,27 +1,23 @@
 {
   "files": {
-    "main.css": "/example-app/static/css/main.cb5eaa8d.css",
-    "main.js": "/example-app/static/js/main.41c4a650.js",
-    "static/js/787.d8118572.chunk.js": "/example-app/static/js/787.d8118572.chunk.js",
-    "static/media/woodland-elves.jpg": "/example-app/static/media/woodland-elves.b182a0105bb0e8bc42e0.jpg",
-    "static/media/pelennor-fields.jpg": "/example-app/static/media/pelennor-fields.e60801b7685d24349517.jpg",
-    "static/media/main-background.jpg": "/example-app/static/media/main-background.85e62f3b79d85f69533b.jpg",
-    "static/media/smaug.jpg": "/example-app/static/media/smaug.0db701a47693b61c49ab.jpg",
-    "static/media/gold-pouch.jpg": "/example-app/static/media/gold-pouch.c07d7d21244e3ec5055b.jpg",
-    "static/media/dragon.jpg": "/example-app/static/media/dragon.c1102b44424bf67a12ff.jpg",
-    "static/media/hobbit-team.jpg": "/example-app/static/media/hobbit-team.1cc5ddaac8f1f63b380f.jpg",
-    "static/media/logo.png": "/example-app/static/media/logo.bee17203a4b390b5bf2e.png",
-    "static/media/old-paper.png": "/example-app/static/media/old-paper.7a94658b94efa2d750e2.png",
-    "static/media/gandalf-wants-you.jpg": "/example-app/static/media/gandalf-wants-you.4473c5a78e189a083e44.jpg",
-    "static/media/smiling-aragorn.jpg": "/example-app/static/media/smiling-aragorn.79703e9101183c804e6f.jpg",
-    "static/media/logo-long.png": "/example-app/static/media/logo-long.4e4ffc57dbeae1633e6f.png",
-    "index.html": "/example-app/index.html",
-    "main.cb5eaa8d.css.map": "/example-app/static/css/main.cb5eaa8d.css.map",
-    "main.41c4a650.js.map": "/example-app/static/js/main.41c4a650.js.map",
-    "787.d8118572.chunk.js.map": "/example-app/static/js/787.d8118572.chunk.js.map"
+    "main.css": "/example-react-app/static/css/main.6ddd640a.css",
+    "main.js": "/example-react-app/static/js/main.4b9d859d.js",
+    "static/js/787.e584e4fe.chunk.js": "/example-react-app/static/js/787.e584e4fe.chunk.js",
+    "static/media/main-background.jpg": "/example-react-app/static/media/main-background.85e62f3b79d85f69533b.jpg",
+    "static/media/smaug.jpg": "/example-react-app/static/media/smaug.0db701a47693b61c49ab.jpg",
+    "static/media/gold-pouch.jpg": "/example-react-app/static/media/gold-pouch.c07d7d21244e3ec5055b.jpg",
+    "static/media/hobbit-team.jpg": "/example-react-app/static/media/hobbit-team.1cc5ddaac8f1f63b380f.jpg",
+    "static/media/logo.png": "/example-react-app/static/media/logo.bee17203a4b390b5bf2e.png",
+    "static/media/old-paper.png": "/example-react-app/static/media/old-paper.7a94658b94efa2d750e2.png",
+    "static/media/smiling-aragorn.jpg": "/example-react-app/static/media/smiling-aragorn.79703e9101183c804e6f.jpg",
+    "static/media/logo-long.png": "/example-react-app/static/media/logo-long.4e4ffc57dbeae1633e6f.png",
+    "index.html": "/example-react-app/index.html",
+    "main.6ddd640a.css.map": "/example-react-app/static/css/main.6ddd640a.css.map",
+    "main.4b9d859d.js.map": "/example-react-app/static/js/main.4b9d859d.js.map",
+    "787.e584e4fe.chunk.js.map": "/example-react-app/static/js/787.e584e4fe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cb5eaa8d.css",
-    "static/js/main.41c4a650.js"
+    "static/css/main.6ddd640a.css",
+    "static/js/main.4b9d859d.js"
   ]
 }
