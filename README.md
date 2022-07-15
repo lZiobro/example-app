@@ -1,4 +1,4 @@
-#The app is available at: https://lziobro.github.io/example-react-app
+# The app is available at: https://lziobro.github.io/example-react-app
 
 ### Tired of looking for a new mates for the next big adventure?
 
