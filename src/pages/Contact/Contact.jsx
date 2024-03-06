@@ -1,36 +1,24 @@
 import { React, useState, useEffect } from "react";
 import "./Contact.scss";
 import { useLocation, useNavigate } from "react-router-dom";
+import { getTokenStorage } from "../../Storage/UserStorage";
+import { postNewMessageApi } from "../../service/MessageService";
 
-function Contact(props) {
+function Contact() {
   const location = useLocation();
   const navigate = useNavigate();
   const [receiverName, setReceiverName] = useState(location?.state?.recipent);
   const [topic, setTopic] = useState();
   const [content, setContent] = useState();
-  const apiNewMessageUrl =
-    process.env.REACT_APP_API_BASE_URL + "/api/messages/new";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = await apiNewMessage({ receiverName, topic, content });
+    const data = await postNewMessageApi({ receiverName, topic, content });
     if (data.ok) navigate("/mail");
   };
 
-  const apiNewMessage = async (data) => {
-    return fetch(apiNewMessageUrl, {
-      mode: "cors",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-      body: JSON.stringify(data),
-    });
-  };
-
   useEffect(() => {
-    if (!localStorage.getItem("token")) navigate("/login");
+    if (!getTokenStorage()) navigate("/login");
   }, []);
 
   return (

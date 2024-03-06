@@ -8,11 +8,13 @@ import {
   useNavigate,
   createSearchParams,
 } from "react-router-dom";
+import { b64toBlob } from "../../tools/blobTools";
+import { getMercenariesApi } from "../../service/UserService";
 
 function Mercenaries() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [mercenaries, setMercenaries] = useState(null);
   const [userCount, setUserCount] = useState(null);
-  const [searchParams, setSearchParams] = useSearchParams();
   const [page, setPage] = useState(searchParams.get("page"));
   const [resultsPerPage, setResultsPerPage] = useState(25);
   const [race, setRace] = useState(searchParams.get("race"));
@@ -20,35 +22,10 @@ function Mercenaries() {
   const [experience, setExperience] = useState(searchParams.get("experience"));
   const location = useLocation();
   const navigate = useNavigate();
-  const apiGetUserUrl =
-    process.env.REACT_APP_API_BASE_URL + "/api/users/getListedUsers";
-  const placeholderUrl =
-    "https://thumbs.dreamstime.com/b/fantasy-character-magic-woodcutter-elderly-man-face-long-thick-beard-braided-mustache-steel-armor-old-headdress-194964340.jpg";
-
-  //https://stackoverflow.com/questions/16245767/creating-a-blob-from-a-base64-string-in-javascript
-  const b64toBlob = (b64Data, contentType = "", sliceSize = 512) => {
-    const byteCharacters = atob(b64Data);
-    const byteArrays = [];
-
-    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-      const slice = byteCharacters.slice(offset, offset + sliceSize);
-
-      const byteNumbers = new Array(slice.length);
-      for (let i = 0; i < slice.length; i++) {
-        byteNumbers[i] = slice.charCodeAt(i);
-      }
-
-      const byteArray = new Uint8Array(byteNumbers);
-      byteArrays.push(byteArray);
-    }
-
-    const blob = new Blob(byteArrays, { type: contentType });
-    return blob;
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    var searchParams = [];
+    const searchParams = [];
     if (race) searchParams.push(["race", race]);
     if (occupation) searchParams.push(["occupation", occupation]);
     if (experience) searchParams.push(["experience", experience]);
@@ -58,7 +35,7 @@ function Mercenaries() {
     location.search = "?" + createSearchParams(searchParams);
 
     navigate({ pathname: "/mercenaries", search: location.search });
-    var result = await apiMercenaries();
+    var result = await getMercenariesApi(location);
     var resultJson = await result.json();
     var usersWithPictures = resultJson.usersWithPictures;
     //also set the users pfps
@@ -78,22 +55,12 @@ function Mercenaries() {
     setMercenaries(resultJson.usersWithPictures);
   };
 
-  const apiMercenaries = async () => {
-    return fetch(apiGetUserUrl + location.search, {
-      mode: "cors",
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    });
-  };
-
   const pagerTopPosition = useRef(null);
 
   useEffect(() => {
     //fill the results with parameters from get
     const innerFuncAsync = async () => {
-      var result = await apiMercenaries();
+      var result = await getMercenariesApi(location);
       var resultJson = await result.json();
       var usersWithPictures = resultJson.usersWithPictures;
       //also set the users pfps
@@ -195,7 +162,7 @@ function Mercenaries() {
 
       <div className="mercenaries-result-wrapper">
         <p className="mercenaries-found">
-          Found: {userCount ? userCount : 0} mercenaries.
+          Found: {userCount ?? 0} mercenaries.
         </p>
         <div ref={pagerTopPosition}></div>
         <Pager

@@ -1,13 +1,17 @@
 import { React, useEffect } from "react";
 import "./Logout.scss";
 import { useNavigate } from "react-router-dom";
+import {
+  removeTokenStorage,
+  removeUsernameStorage,
+} from "../../Storage/UserStorage";
 
 function Logout(props) {
   const navigate = useNavigate();
   let timeoutId = null;
   useEffect(() => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("username");
+    removeTokenStorage();
+    removeUsernameStorage();
     props.setLoggedIn(false);
     timeoutId = setTimeout(() => {
       navigate("/");

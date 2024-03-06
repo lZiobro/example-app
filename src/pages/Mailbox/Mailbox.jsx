@@ -1,6 +1,11 @@
 import { React, useState, useEffect } from "react";
 import "./Mailbox.scss";
 import { Link } from "react-router-dom";
+import { getTokenStorage } from "../../Storage/UserStorage";
+import {
+  getMessagesInApi,
+  getMessagesOutApi,
+} from "../../service/MessageService";
 
 function MailsList(props) {
   const Messages = props.messages;
@@ -20,11 +25,9 @@ function MailsList(props) {
     );
   }, [selectedRowIndex]);
 
-  if (
-    localStorage.getItem("token") === "undefined" ||
-    localStorage.getItem("token") === null
-  )
+  if (!getTokenStorage()) {
     return <>Unauthorized</>;
+  }
 
   return (
     <>
@@ -76,7 +79,6 @@ function MailsList(props) {
               <td></td>
               <td></td>
               <td></td>
-
               <td></td>
             </tr>
           )}
@@ -112,42 +114,25 @@ function Mailbox() {
   const [outMessages, setOutMessages] = useState(null);
   const [inMessages, setInMessages] = useState(null);
 
-  const apiOutMessagesUrl =
-    process.env.REACT_APP_API_BASE_URL + "/api/messages/getAllUserMessagesOut";
-  const apiInMessagesUrl =
-    process.env.REACT_APP_API_BASE_URL + "/api/messages/getAllUserMessagesIn";
-
   const handleBoxSelect = async (box) => {
     setBox(box);
     if (box === "Inbox" && inMessages === null) {
-      const data = await apiMessages(apiInMessagesUrl);
+      const data = await getMessagesInApi();
       if (data?.status === 200) setInMessages(await data.json());
     } else if (box === "Sent" && outMessages === null) {
-      const data = await apiMessages(apiOutMessagesUrl);
+      const data = await getMessagesOutApi();
       if (data?.status === 200) setOutMessages(await data.json());
     }
   };
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await apiMessages(apiInMessagesUrl);
+      const data = await getMessagesInApi();
       if (data?.status === 200) setInMessages(await data.json());
     };
 
     fetchData();
   }, []);
-
-  const apiMessages = async (apiMessagesUrl) => {
-    var result = await fetch(apiMessagesUrl, {
-      mode: "cors",
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    });
-    return result;
-  };
 
   return (
     <div className="mailbox-wrapper soft-edges old-paper-background">

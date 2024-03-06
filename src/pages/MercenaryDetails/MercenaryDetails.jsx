@@ -1,6 +1,14 @@
 import { React, useState, useEffect } from "react";
 import "./MercenaryDetails.scss";
 import { Link, useLocation } from "react-router-dom";
+import { getUsernameStorage } from "../../Storage/UserStorage";
+import {
+  getMercenaryDetailsApi,
+  postEditUserDetailsApi,
+  postSetUserListingApi,
+  postUploadProfilePictureApi,
+} from "../../service/UserService";
+import { b64toBlob } from "../../tools/blobTools";
 
 function MercenaryDetails(props) {
   const [mercenaryDetails, setMercenaryDetails] = useState(null);
@@ -23,33 +31,11 @@ function MercenaryDetails(props) {
   const [aboutMe, setAboutMe] = useState();
 
   const location = useLocation();
-  const apiFindUserUrl = process.env.REACT_APP_API_BASE_URL + "/api/users";
-  const apiEditUserDetailsUrl =
-    process.env.REACT_APP_API_BASE_URL + "/api/users/editDetails";
-  const apiUploadProfilePictureUrl =
-    process.env.REACT_APP_API_BASE_URL + "/api/users/upload/profilePicture";
-  const apiSetListing =
-    process.env.REACT_APP_API_BASE_URL + "/api/users/setListing";
   const placeholderUrl =
     "https://thumbs.dreamstime.com/b/fantasy-character-magic-woodcutter-elderly-man-face-long-thick-beard-braided-mustache-steel-armor-old-headdress-194964340.jpg";
 
-  const apiGetMercenaryDetails = async () => {
-    return fetch(
-      apiFindUserUrl +
-        "?userName=" +
-        location.pathname.substring(location.pathname.lastIndexOf("/") + 1),
-      {
-        mode: "cors",
-        method: "GET",
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      }
-    );
-  };
-
   const getUserData = async () => {
-    const result = await apiGetMercenaryDetails();
+    const result = await getMercenaryDetailsApi(location);
     if (!result.ok) return;
     const jsonResult = await result.json();
     setMercenaryDetails(jsonResult.user);
@@ -64,37 +50,13 @@ function MercenaryDetails(props) {
       }
     }
     setIsActiveUser(
-      jsonResult.user.userName === localStorage.getItem("username")
+      jsonResult.user.userName.toLowerCase() === getUsernameStorage()
     );
   };
 
   useEffect(() => {
     getUserData();
-  }, []);
-  useEffect(() => {
-    getUserData();
   }, [location]);
-
-  //https://stackoverflow.com/questions/16245767/creating-a-blob-from-a-base64-string-in-javascript
-  const b64toBlob = (b64Data, contentType = "", sliceSize = 512) => {
-    const byteCharacters = atob(b64Data);
-    const byteArrays = [];
-
-    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-      const slice = byteCharacters.slice(offset, offset + sliceSize);
-
-      const byteNumbers = new Array(slice.length);
-      for (let i = 0; i < slice.length; i++) {
-        byteNumbers[i] = slice.charCodeAt(i);
-      }
-
-      const byteArray = new Uint8Array(byteNumbers);
-      byteArrays.push(byteArray);
-    }
-
-    const blob = new Blob(byteArrays, { type: contentType });
-    return blob;
-  };
 
   //set form values after loading details from api
   useEffect(() => {
@@ -118,51 +80,16 @@ function MercenaryDetails(props) {
     setIsListed(mercenaryDetails?.isListed ? true : false);
   }, [mercenaryDetails]);
 
-  const apiEditUserDetails = async (credentials) => {
-    return fetch(apiEditUserDetailsUrl, {
-      mode: "cors",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-      body: JSON.stringify(credentials),
-    });
-  };
-
   const apiSetUserListing = async (e) => {
     //notice we reversing the isListed here to avoid additional api call
     setIsListed(!isListed);
-    var value = !isListed;
-    return fetch(apiSetListing, {
-      mode: "cors",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-      body: JSON.stringify(value),
-    });
-  };
-
-  const apiUploadProfilePicture = async (pfp) => {
-    if (pfp == null) return;
-    const fd = new FormData();
-    fd.append("profilePicture", pfp);
-    return fetch(apiUploadProfilePictureUrl, {
-      mode: "cors",
-      method: "POST",
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-      body: fd,
-    });
+    postSetUserListingApi(!isListed);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!editing) return;
-    var result = await apiEditUserDetails({
+    await postEditUserDetailsApi({
       race,
       occupation,
       experience,
@@ -174,8 +101,7 @@ function MercenaryDetails(props) {
       aboutMe,
     });
     if (profilePicture != null) {
-      var result2 = await apiUploadProfilePicture(profilePicture);
-
+      await postUploadProfilePictureApi(profilePicture);
       setProfilePicture(null);
     }
     //check whatever successfull

@@ -2,34 +2,29 @@ import React from "react";
 import { useState } from "react";
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
+import {
+  getTokenStorage,
+  setTokenStorage,
+  setUsernameStorage,
+} from "../../Storage/UserStorage";
+import { postLoginApi } from "../../service/LoginService";
 
 function Login(props) {
   const navigate = useNavigate();
   const [userName, setUserName] = useState();
   const [password, setPassword] = useState();
-  const apiLoginUrl = process.env.REACT_APP_API_BASE_URL + "/api/users/login";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = await apiLogin2({ userName, password });
+    const data = await postLoginApi({ userName, password });
     const token = (await data.json())?.token;
     if (!token) return;
-    localStorage.setItem("token", token);
-    if (localStorage.getItem("token")) {
-      localStorage.setItem("username", userName);
+    setTokenStorage(token);
+    if (getTokenStorage()) {
+      setUsernameStorage(userName);
       props.setLoggedIn(true);
       navigate(-1);
     }
-  };
-
-  const apiLogin2 = async (credentials) => {
-    return fetch(apiLoginUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credentials),
-    });
   };
 
   return (

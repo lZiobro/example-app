@@ -2,6 +2,7 @@ import React from "react";
 import "./Navbar.scss";
 import { Outlet, Link } from "react-router-dom";
 import logoLong from "../../assets/shared/logo-long.png";
+import { getTokenStorage, getUsernameStorage } from "../../Storage/UserStorage";
 
 function Navbar() {
   return (
@@ -18,22 +19,20 @@ function Navbar() {
             <Link to="/mercenaries">Mercenaries</Link>
           </li>
 
-          {localStorage.getItem("token") ? (
+          {getTokenStorage() ? (
             <>
               <li className="navbar-btn">
                 <Link to="/mail">Mailbox</Link>
               </li>
               <li className="navbar-btn">
-                <Link to={"/mercenary/" + localStorage.getItem("username")}>
-                  Profile
-                </Link>
+                <Link to={"/mercenary/" + getUsernameStorage()}>Profile</Link>
               </li>
             </>
           ) : (
             ""
           )}
 
-          {!localStorage.getItem("token") ? (
+          {!getTokenStorage() ? (
             <>
               <li className="navbar-btn">
                 <Link to="/login">Login</Link>

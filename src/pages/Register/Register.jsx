@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import "./Register.scss";
 import { useNavigate } from "react-router-dom";
+import { postRegisterApi } from "../../service/LoginService";
 
 function Register(props) {
   const navigate = useNavigate();
@@ -9,12 +10,10 @@ function Register(props) {
   const [race, setRace] = useState();
   const [occupation, setOccupation] = useState();
   const [experience, setExperience] = useState();
-  const apiRegisterUrl =
-    process.env.REACT_APP_API_BASE_URL + "/api/users/register";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await apiRegister({
+    const result = await postRegisterApi({
       userName,
       password,
       race,
@@ -22,16 +21,6 @@ function Register(props) {
       experience,
     });
     if (result.ok) navigate("/login");
-  };
-
-  const apiRegister = async (credentials) => {
-    return fetch(apiRegisterUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credentials),
-    });
   };
 
   return (

@@ -11,10 +11,11 @@ import Logout from "./pages/Logout/Logout";
 import Contact from "./pages/Contact/Contact";
 import Mailbox from "./pages/Mailbox/Mailbox";
 import Home from "./pages/Home/Home";
+import { getTokenStorage } from "./Storage/UserStorage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("token") ? true : false
+    getTokenStorage() ? true : false
   );
 
   return (
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navbar loggedIn={isLoggedIn} />}>
             <Route index element={<Home />} />
+            <Route path="example-react-app" element={<Home />} />
             <Route path="mercenaries" element={<Mercenaries />} />
             <Route path="mercenary/:id" element={<MercenaryDetails />} />
             <Route
