@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/example-react-app/static/css/main.6ddd640a.css",
-    "main.js": "/example-react-app/static/js/main.ee781ecc.js",
+    "main.js": "/example-react-app/static/js/main.c6716624.js",
     "static/js/787.e584e4fe.chunk.js": "/example-react-app/static/js/787.e584e4fe.chunk.js",
     "static/media/main-background.jpg": "/example-react-app/static/media/main-background.85e62f3b79d85f69533b.jpg",
     "static/media/smaug.jpg": "/example-react-app/static/media/smaug.0db701a47693b61c49ab.jpg",
@@ -13,11 +13,11 @@
     "static/media/logo-long.png": "/example-react-app/static/media/logo-long.4e4ffc57dbeae1633e6f.png",
     "index.html": "/example-react-app/index.html",
     "main.6ddd640a.css.map": "/example-react-app/static/css/main.6ddd640a.css.map",
-    "main.ee781ecc.js.map": "/example-react-app/static/js/main.ee781ecc.js.map",
+    "main.c6716624.js.map": "/example-react-app/static/js/main.c6716624.js.map",
     "787.e584e4fe.chunk.js.map": "/example-react-app/static/js/787.e584e4fe.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6ddd640a.css",
-    "static/js/main.ee781ecc.js"
+    "static/js/main.c6716624.js"
   ]
 }
